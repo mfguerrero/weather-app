@@ -44,7 +44,7 @@ app.get('/weather', (req, res) => {
     forecast(location, (error, wInfo) => {
       if (error) return res.send({ error })
       res.send({
-        forecast: `Today is ${wInfo.weather_descriptions[0]} in ${location.name}. It is currently ${wInfo.temperature}° celcius(feels like ${wInfo.feelslike}°) and there's ${wInfo.precip}% chance of rain`,
+        forecast: `Today is ${wInfo.weather_descriptions[0]} in ${location.name}. It is currently ${wInfo.temperature}° celcius(feels like ${wInfo.feelslike}°) with a humidity of ${wInfo.humidity}% and there's ${wInfo.precip}% chance of rain`,
         location: location.name,
         address: req.query.address
       })
